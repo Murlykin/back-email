@@ -1,14 +1,20 @@
 const express = require("express");
 const serverLog = require('./.public/serverLog')
+const { helpRouter } = require("./routes/api");
+require("dotenv").config()
+const cors = require('cors');
 
 
 const app = express()
 app.use(serverLog);
+app.use(cors());
+
+app.use(express.json());
+app.use(express.static("public"));
+
+app.use('/api', helpRouter)
 
 
-app.get("/", (req, res) => {
-    res.send("<h1>Home</h1>")
-});
 app.use((req, res) => {
     res.status(404).json({ message: 'Not found' })
 })
@@ -20,4 +26,4 @@ app.use((err, req, res, next) => {
     });
 });
 
-app.listen(4000)
+module.exports = app

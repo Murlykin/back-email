@@ -2,6 +2,9 @@
   "name": "back-email",
   "version": "1.0.0",
   "description": "",
+  "private": true,
+  "engines": {
+    "node": ">=14.20.1"}, 
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

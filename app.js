@@ -1,12 +1,12 @@
 const express = require("express");
-const serverLog = require('./.public/serverLog')
+// const serverLog = require('./.public/serverLog')
 const { helpRouter } = require("./routes/api");
 require("dotenv").config()
 const cors = require('cors');
 
 
 const app = express()
-app.use(serverLog);
+// app.use(serverLog);
 app.use(cors());
 
 app.use(express.json());
